@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    font-family: "Century Gothic";
+    color:white;
+    width: 124px;
+    margin-top: 20px;
+  }
+  
+  header {
+    height: 65px;
+    width: 100%;
+    background-color: rgba(34,49,52,0.9);
+    position :fixed;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .header-left {
+    float: left;
+    /* will change later */
+    margin-left:20px;
+  }
+  
+  .header-right {
+    float: right;
+    /* will change later */
+    margin-right: -15px;
+  }
+  
+  .header-right a {
+    line-height: 65px;
+    padding: 0 25px;
+    color: white;
+    display: block;
+    float: left;
+    transition: all 0.5s;
+  }
+  
+  .header-right a:hover {
+    background-color: rgba(255,255,255,0.3);
+  }
+  
+  footer p {
+    color: #b3aeb5;
+    font-size: 11px;
+  }
+  
+  .copyright{
+    color: #b3aeb5;
+    font-size: 11px;
+  }
+  
+  footer {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left:20px;
+  }
+  
+  .heading_top {
+    margin-top:90px;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    color: #5f5d60;
+    /* border:medium solid black; */
+  }
+  
+  .heading_top h2{
+    font-weight: bold;
+    font-family:"Courier New";
+    margin-left:50px;
+  }
+  
+  @media all and (min-width:800px){
+  
+    .header-left {
+      margin-left:200px;
+    }
+    
+    .header-right {
+      float: right;
+      /* will change later */
+      margin-right:140px;
+    }
+  
+    .heading {
+      margin-right:140px;
+      margin-left:140px;
+    }
+    
+    .heading_top {
+      margin-right:140px;
+      margin-left:140px;
+    }
+    
+    .heading h3 {
+      margin-left:70px;
+    }
+    
+    .heading_top h3{
+      margin-left:70px;
+    }
+    
+    footer p {
+      margin-left:140px;
+    }
+    
+  }
