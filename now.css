@@ -22,6 +22,10 @@
     width: 124px;
     margin-top: 20px;
   }
+
+  .logo a{
+    color:white;
+  }
   
   header {
     height: 65px;
