@@ -75,11 +75,21 @@ header {
 }
 
 .heading_top a{
-  color:black
+  color:black;
+  /* border-right-width: thin double black;
+  border-left-width:thin double black; */
+  border:medium solid silver;
+  border-radius:15px;
+  padding:8px;
+  background-color:mintcream;
 }
 
 .heading a{
   color:black;
+  border:medium solid silver;
+  border-radius:15px;
+  padding:8px;
+  background-color:mintcream;
 }
 
 .heading_top a:hover {
