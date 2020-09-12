@@ -1,83 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="jp">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tomiharu.github.io</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>tomiharu0317</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="header-left">
-          <div class="logo">
-            <h2><a href="index.html">tomiharu</a></h2>
-          </div>
-          <!-- tomiharuを押したらホームに戻る -->
-      </div>
-      <div class="header-right">
-        <a class="fa fa-twitter" href="https://twitter.com/tomiharu1412"></a>
-        <a class="fa fa-github" href="https://github.com/tomiharu0317"></a>
-        <a class="fa fa-envelope" href="mailto:tomiharu1017@gmail.com"></a>
-      </div>
-    </div>
-  </header>
-  <div class="main-contents">
-    <div class="container">
-        <div class="heading_top">
-              <h3><a href="about.html">about ; 基本情報</a></h3>
-            <hr>
-            <ul>
-                <li>自分</li>
-                <li>経歴</li>
-                <li>その他</li>
-            </ul>
-        </div>
-        <div class="heading">
-            <h3><a href="hobby.html">hobbys ; 趣味</a></h3>
-            <hr>
-            <ul>
-              <!-- <li>competitive programming</li> -->
-              <li></li>
-              <!-- <li>emptyemptyemptyemptyemptyempty</li> -->
-            </ul>
-        </div>
-        <div class="heading">
-            <h3><a href="skill.html">skills ; できる</a></h3>
-            <hr>
-            <ul>
-                <li>扱える言語</li>
-                <li>資格</li>
-                <li>その他</li>
-            </ul>
-        </div>
-        <div class="heading">
-            <h3><a href="created.html">created ; やった</a></h3>
-            <hr>
-            <ul>
-                <li></li>
-                <!-- <li>emptyemptyemptyemptyemptyempty</li> -->
-                <!-- <li>emptyemptyemptyemptyemptyempty</li> -->
-            </ul>
-        </div>
-        <div class="heading">
-            <h3><a href="now.html">now doing ; やってる</a></h3>
-            <hr>
-            <ul>
-                <li></li>
-                <li></li>
-                <!-- <li>emptyemptyemptyemptyemptyempty</li> -->
-            </ul>
-        </div>
-    </div>
+  <div id="app">
+    {{ message }}
   </div>
-  <footer>
-    <div class="container">
-        <p>※Last Update 2019/11/06</p>
-        <p><small class="copyright" class="copyright">&copy; 2019 tomiharu</small></p>
-      </ul>
-    </div>
-  </footer>
+  <div id="app-2">
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds
+      to see my dynamically bound title!
+    </span>
+  </div>
+  <div id="app-3">
+    <span v-if="seen">Now you see me</span>
+  </div>
+  <div id="app-4">
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+  </div>
+  <div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
+  <ol>
+    <!-- todos 配列にある各 todo に対して todo-item コンポーネントのインスタンスを作成する -->
+    <todo-item></todo-item>
+  </ol>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+    })
+    var app2 = new Vue({
+      el: '#app-2',
+      data: {
+        message: 'You loaded this page on ' + new Date().toLocaleString()
+      }
+    })
+    var app3 = new Vue({
+      el: '#app-3',
+      data: {
+        seen: false
+      }
+    })
+    var app4 = new Vue({
+      el: '#app-4',
+      data: {
+        todos: [
+          { text: 'Learn JavaScript' },
+          { text: 'Learn Vue' },
+          { text: 'Build something awesome' },
+          { text: 'New item' }
+        ]
+      }
+    })
+    var app5 = new Vue({
+      el: '#app-5',
+      data: {
+        message: 'Hello Vue.js!'
+      },
+      methods: {
+        reverseMessage: function () {
+          this.message = this.message.split('').reverse().join('')
+        }
+      }
+    })
+    var app6 = new Vue({
+      el: '#app-6',
+      data: {
+        message: 'Hello Vue!'
+      }
+    })
+    Vue.component('todo-item', {
+      template: '<li>This is a todo</li>'
+    })
+
+    var app = new Vue()
+  </script>
 </body>
 </html>
