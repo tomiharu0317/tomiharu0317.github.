@@ -28,12 +28,14 @@ var pJS = function(tag_id, params){
       },
       color: {
         value: '#fff'
+        // value: '#32a4a8'
       },
       shape: {
         type: 'circle',
         stroke: {
           width: 0,
           color: '#ff0000'
+          // color:'#32a4a8'
         },
         polygon: {
           nb_sides: 5
@@ -157,9 +159,9 @@ var pJS = function(tag_id, params){
   pJS.fn.retinaInit = function(){
 
     if(pJS.retina_detect && window.devicePixelRatio > 1){
-      pJS.canvas.pxratio = window.devicePixelRatio; 
+      pJS.canvas.pxratio = window.devicePixelRatio;
       pJS.tmp.retina = true;
-    } 
+    }
     else{
       pJS.canvas.pxratio = 1;
       pJS.tmp.retina = false;
@@ -299,8 +301,14 @@ var pJS = function(tag_id, params){
     }
     else if(typeof(color.value) == 'string'){
       this.color = color;
-      this.color.rgb = hexToRgb(this.color.value);
+      // this.color.rgb = hexToRgb(this.color.value);
+      this.color.rgb = {
+        r: 50,
+        g: 164,
+        b: 168
+      }
     }
+
 
     /* opacity */
     this.opacity = (pJS.particles.opacity.random ? Math.random() : 1) * pJS.particles.opacity.value;
@@ -363,7 +371,7 @@ var pJS = function(tag_id, params){
     this.vx_i = this.vx;
     this.vy_i = this.vy;
 
-    
+
 
     /* if shape is image */
 
@@ -392,7 +400,7 @@ var pJS = function(tag_id, params){
       }
     }
 
-    
+
 
   };
 
